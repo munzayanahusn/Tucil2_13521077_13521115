@@ -1,6 +1,8 @@
 import math
 import numpy
 
+countEuclid = 0
+
 '''
 Algoritma Divide Conquer
 Divide  : Bagi himpunan titik menjadi 2 bagian seimbang (jumlah titik tiap bagian sama)
@@ -13,14 +15,13 @@ Combine : Tentukan nilai jarak antar point minimum, terdapat 3 kasus:
 
 
 # Inisiasi variabel global minimum distance dan point
-minDistance = 0
-minPoint1 = 0
-minPoint2 = 0
 
 # Function menghitung euclidean distance
 
 
 def euclidDistance(point):
+    global countEuclid
+    countEuclid += 1
     dis = 0
     for i in range(len(point)):
         temp = point[i][0]
@@ -32,6 +33,10 @@ def euclidDistance(point):
 
 # Function menentukan minimum distance kasus 3
 # def midPointDistance()
+
+#
+
+# Menemukan pasangan titik dengan jarak terdekat
 
 
 def findPair(point):
@@ -66,9 +71,17 @@ def findPair(point):
         # Proses Divide
         leftPoint = point[:(len(point)//2)]
         rightPoint = point[((len(point)//2) + 1):]
-        leftDistance = findPair(leftPoint)
-        rightDistance = findPair(rightPoint)
+        leftDistance, leftPoint1, leftPoint2 = findPair(leftPoint)
+        rightDistance, rightPoint1, rightPoint2 = findPair(rightPoint)
 
         # Proses Combine
-        minDistance = min(leftDistance, rightDistance)
-        # minDistance = min(minDistance, midPointDistance)
+        if (leftDistance < rightDistance):
+            minDistance = leftDistance
+            minPoint1 = leftPoint1
+            minPoint2 = leftPoint2
+        else:
+            minDistance = rightDistance
+            minPoint1 = rightPoint1
+            minPoint2 = rightPoint2
+
+    return minDistance, minPoint1, minPoint2
