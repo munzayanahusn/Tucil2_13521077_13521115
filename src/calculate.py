@@ -23,9 +23,9 @@ def euclidDistance(point):
     global countEuclid
     countEuclid += 1
     dis = 0
-    for i in range(len(point)):
-        temp = point[i][0]
-        for j in range(1, len(point[i])):
+    for j in range(len(point[0])):
+        temp = point[0][j]
+        for i in range(len(point)):
             temp -= point[i][j]
         dis += math.pow(temp, 2)
 
