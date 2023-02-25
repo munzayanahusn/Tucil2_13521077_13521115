@@ -39,12 +39,13 @@ def euclidDistance(point1, point2):
 def findPair(point):
     # Proses Conquer / solve
     if (len(point) == 2):
-        minDistance = euclidDistance(point[0], point[1])
+        minDistance = euclidDistance(point[0],point[1])
         minPoint1 = point[0]
         minPoint2 = point[1]
     elif (len(point) == 3):
         # Compare P0 dan P1
-        minDistance = euclidDistance(point[0], point[1])
+        tempPoint = [point[0], point[1]]
+        minDistance = euclidDistance(point[0],point[1])
         minPoint1 = point[0]
         minPoint2 = point[1]
 
@@ -64,7 +65,8 @@ def findPair(point):
     else:
         # Proses Divide
         leftPoint = point[:(len(point)//2)]
-        rightPoint = point[((len(point)//2) + 1):]
+        rightPoint = point[((len(point)//2)):]
+        midPoint = point[len(point)//2][0]
         leftDistance, leftPoint1, leftPoint2 = findPair(leftPoint)
         rightDistance, rightPoint1, rightPoint2 = findPair(rightPoint)
 
@@ -77,5 +79,27 @@ def findPair(point):
             minDistance = rightDistance
             minPoint1 = rightPoint1
             minPoint2 = rightPoint2
-
+        
+        middleCompare(minDistance, point, minPoint1, minPoint2, midPoint)
     return minDistance, minPoint1, minPoint2
+
+
+def middleCompare(distanceMin,points,point1,point2,indexMid):
+    inarroundMiddle = []
+    rightboundary = indexMid+int(distanceMin)
+    leftboundary = indexMid-int(distanceMin)
+    for point in points:
+        if point[0] > rightboundary:
+            break 
+        elif leftboundary <= point[0] <= rightboundary:
+            inarroundMiddle.append(point)
+
+    for i in range(len(inarroundMiddle)):
+        for j in range(i+1,len(inarroundMiddle)):
+            distanceNow = euclidDistance(inarroundMiddle[i], inarroundMiddle[j])
+
+            if distanceMin > distanceNow:
+                point1 = inarroundMiddle[i]
+                point2 = inarroundMiddle[j]
+                distanceMin = distanceNow
+    return distanceMin,point1,point2
