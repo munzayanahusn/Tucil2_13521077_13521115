@@ -17,13 +17,13 @@ Combine : Tentukan nilai jarak antar point minimum, terdapat 3 kasus:
 # Inisiasi variabel global minimum distance dan point
 
 # Function menghitung euclidean distance
-def euclidDistance(point):
+def euclidDistance(point1, point2):
     global countEuclid
     countEuclid += 1
     print(countEuclid)
     dis = 0
-    for i in range(len(point[0])):
-        temp = point[1][i] - point[0][i]
+    for i in range(len(point1)):
+        temp = point2[i] - point1[i]
         dis += math.pow(temp, 2)
 
     return math.sqrt(dis)
@@ -39,31 +39,28 @@ def euclidDistance(point):
 def findPair(point):
     # Proses Conquer / solve
     if (len(point) == 2):
-        minDistance = euclidDistance(point)
+        minDistance = euclidDistance(point[0], point[1])
         minPoint1 = point[0]
         minPoint2 = point[1]
     elif (len(point) == 3):
         # Compare P0 dan P1
-        tempPoint = [point[0], point[1]]
-        minDistance = euclidDistance(tempPoint)
-        minPoint1 = tempPoint[0]
-        minPoint2 = tempPoint[1]
+        minDistance = euclidDistance(point[0], point[1])
+        minPoint1 = point[0]
+        minPoint2 = point[1]
 
         # Compare P0 dan P2
-        tempPoint = [point[0], point[2]]
-        tempDistance = euclidDistance(tempPoint)
+        tempDistance = euclidDistance(point[0], point[2])
         if (minDistance > tempDistance):
             minDistance = tempDistance
-            minPoint1 = tempPoint[0]
-            minPoint2 = tempPoint[1]
+            minPoint1 = point[0]
+            minPoint2 = point[2]
 
         # Compare P1 dan P2
-        tempPoint = [point[1], point[2]]
-        tempDistance = euclidDistance(tempPoint)
+        tempDistance = euclidDistance(point[1], point[2])
         if (minDistance > tempDistance):
             minDistance = tempDistance
-            minPoint1 = tempPoint[0]
-            minPoint2 = tempPoint[1]
+            minPoint1 = point[1]
+            minPoint2 = point[2]
     else:
         # Proses Divide
         leftPoint = point[:(len(point)//2)]
