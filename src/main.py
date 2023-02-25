@@ -23,6 +23,8 @@ def printPoint(point):
 
 # Main Program
 # Jumlah titik atau point
+print("Masukkan dimensi vektor : ", end='')
+d = int(input())
 print("Masukkan jumlah titik : ", end='')
 n = int(input())
 start = time.time()
@@ -44,5 +46,7 @@ printPoint(minPoint2)
 print("   Jarak   :", minDistance, "")
 print("Banyak Perhitungan Jarak Euclidean Distance :", countEuclid)
 print("Execution Time : %s seconds" % exeTime)
+
+# if (d == 2) visualisasi 
 
 # Visualisasi
