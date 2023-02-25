@@ -2,6 +2,8 @@ import math
 from makePoint import *
 from calculate import *
 import time
+from plot import *
+
 
 countEuclid = 0
 
@@ -44,5 +46,5 @@ printPoint(minPoint2)
 print("   Jarak   :", minDistance, "")
 print("Banyak Perhitungan Jarak Euclidean Distance :", countEuclid)
 print("Execution Time : %s seconds" % exeTime)
-
 # Visualisasi
+drawPlot(point, minPoint1, minPoint2)
