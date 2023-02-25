@@ -17,16 +17,13 @@ Combine : Tentukan nilai jarak antar point minimum, terdapat 3 kasus:
 # Inisiasi variabel global minimum distance dan point
 
 # Function menghitung euclidean distance
-
-
 def euclidDistance(point):
     global countEuclid
     countEuclid += 1
+    print(countEuclid)
     dis = 0
-    for j in range(len(point[0])):
-        temp = point[0][j]
-        for i in range(len(point)):
-            temp -= point[i][j]
+    for i in range(len(point[0])):
+        temp = point[1][i] - point[0][i]
         dis += math.pow(temp, 2)
 
     return math.sqrt(dis)
