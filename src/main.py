@@ -4,6 +4,7 @@ from calculateDC import *
 from calculateBruteForce import *
 import time
 from plot import *
+from mergesortsbX import *
 
 # Main Program
 # Jumlah titik atau point
@@ -22,7 +23,7 @@ while (n <= 1):
     n = int(input())
 
 point = randomPoint(n, d)    # Menghasilkan array of point
-point.sort()
+point = mergeSortSbX(point)
 
 minDistance = 0
 minPoint1 = []
