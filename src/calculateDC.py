@@ -30,6 +30,12 @@ def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
             distanceNow, countEuclid = euclidDistance(
                 inarroundMiddle[i], inarroundMiddle[j], countEuclid)
 
+            print("\n-- Middle --")
+            print(distanceNow)
+            print(inarroundMiddle[i])
+            print(inarroundMiddle[j])
+            print()
+
             if (distanceMin == distanceNow):
                 point1.append(inarroundMiddle[i])
                 point2.append(inarroundMiddle[j])
@@ -44,11 +50,11 @@ def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
 
 
 def findPairDC(point, countEuclid):
-    '''
+
     print("+++++++++++")
     print(point)
     print("+++++++++++")
-    '''
+
     # Proses Conquer / solve
     if (len(point) == 2):
         minDistance, countEuclid = euclidDistance(
@@ -87,14 +93,14 @@ def findPairDC(point, countEuclid):
         # Proses Divide
         leftPoint = point[:(len(point)//2)]
         rightPoint = point[((len(point)//2)):]
-        midPoint = point[len(point)//2][0]
+        midPoint = (leftPoint[len(leftPoint)-1][0] + rightPoint[0][0]) / 2
         leftDistance, leftPoint1, leftPoint2, countEuclid = findPairDC(
             leftPoint, countEuclid)
         rightDistance, rightPoint1, rightPoint2, countEuclid = findPairDC(
             rightPoint, countEuclid)
 
         # Proses Combine
-        # print("\n-- Combine --\n")
+        print("\n-- Combine --")
         if (leftDistance == rightDistance):
             minDistance = leftDistance
             minPoint1 = leftPoint1 + rightPoint2
@@ -111,10 +117,9 @@ def findPairDC(point, countEuclid):
         minDistance, minPoint1, minPoint2, countEuclid = middleCompare(
             minDistance, point, minPoint1, minPoint2, midPoint, countEuclid)
 
-    '''
     print("-----------")
     print(minDistance)
     printPoint(minPoint1)
     printPoint(minPoint2)
-    '''
+
     return minDistance, minPoint1, minPoint2, countEuclid

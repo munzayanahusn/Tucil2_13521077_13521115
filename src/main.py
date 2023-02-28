@@ -39,6 +39,8 @@ point.append([1, 1, 1])
 point.append([2, 2, 2])
 point.append([3, 3, 3])
 point.append([4, 4, 4])
+point.append([0.1, 0.1, 0.1])
+point.append([0.2, 0.2, 0.2])
 point = quickSortSbX(point, 0, len(point)-1)
 
 minDistance = 0
