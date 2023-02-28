@@ -16,13 +16,15 @@ Combine : Tentukan nilai jarak antar point minimum, terdapat 3 kasus:
 
 
 def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
+    point1 = []
+    point2 = []
     inarroundMiddle = []
-    rightboundary = indexMid+int(distanceMin)
-    leftboundary = indexMid-int(distanceMin)
+    #rightboundary,cnt = euclidDistance(points[len(points)//2], points[(len(points)+1)//2], countEuclid)
+    rightboundary = indexMid+distanceMin
+    #leftboundary,cnt2 = euclidDistance(points[len(points)//2], points[(len(points)-1)//2], countEuclid)
+    leftboundary = indexMid-distanceMin
     for point in points:
-        if point[0] > rightboundary:
-            break
-        elif leftboundary <= point[0] <= rightboundary:
+        if leftboundary <= point[0] <= rightboundary:
             inarroundMiddle.append(point)
 
     for i in range(len(inarroundMiddle)):
@@ -37,8 +39,9 @@ def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
             print()
 
             if (distanceMin == distanceNow):
-                point1.append(inarroundMiddle[i])
-                point2.append(inarroundMiddle[j])
+                if((inarroundMiddle[i] not in point1) and (inarroundMiddle[j] not in point2)):
+                    point1.append(inarroundMiddle[i])
+                    point2.append(inarroundMiddle[j])
             elif distanceMin > distanceNow:
                 point1 = [inarroundMiddle[i]]
                 point2 = [inarroundMiddle[j]]
@@ -93,7 +96,7 @@ def findPairDC(point, countEuclid):
         # Proses Divide
         leftPoint = point[:(len(point)//2)]
         rightPoint = point[((len(point)//2)):]
-        midPoint = (leftPoint[len(leftPoint)-1][0] + rightPoint[0][0]) / 2
+        midPoint = (point[0][0] + point[len(point)-1][0])/2
         leftDistance, leftPoint1, leftPoint2, countEuclid = findPairDC(
             leftPoint, countEuclid)
         rightDistance, rightPoint1, rightPoint2, countEuclid = findPairDC(
