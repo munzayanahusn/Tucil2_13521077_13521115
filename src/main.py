@@ -40,11 +40,9 @@ print("\n")
 point = randomPoint(n, d)    # Menghasilkan array of point
 point.append([0, 0, 0])
 point.append([1, 1, 1])
-point.append([3, 3, 3])
-point.append([2, 2, 2])
-point.append([0.1, 0.1, 0.1])
-point.append([0.2, 0.2, 0.2])
-point.append([0.3, 0.3, 0.3])
+point.append([96, 96, 96])
+point.append([97,97,97])
+
 point = quickSortSbX(point, 0, len(point)-1)
 
 # Pencarian Pasangan Titik Terdekat dengan Algoritma BruteForce
@@ -94,4 +92,5 @@ print("Execution Time : %s seconds" % exeTimeDC, "\033[0m")
 print("\n\033[01m\033[33mShow 3D Visualization ...\033[0m\n")
 # Visualisasi
 if(d == 3):
+    drawPlotResult(minPoint1, minPoint2)
     drawPlot(point, minPoint1, minPoint2)
