@@ -11,27 +11,31 @@ from quickSortSbX import *
 
 print("\n")
 print("     𝑭 𝒊 𝒏 𝒅   𝑻 𝒉 𝒆\n")
-print("     ░█▀▀█ █── █▀▀█ █▀▀ █▀▀ █▀▀ ▀▀█▀▀    ░█▀▀█ █▀▀█ ─▀─ █▀▀█ ")
+print("\033[36m     ░█▀▀█ █── █▀▀█ █▀▀ █▀▀ █▀▀ ▀▀█▀▀    ░█▀▀█ █▀▀█ ─▀─ █▀▀█ ")
 print("     ░█─── █── █──█ ▀▀█ █▀▀ ▀▀█ ──█──    ░█▄▄█ █▄▄█ ▀█▀ █▄▄▀ ")
-print("     ░█▄▄█ ▀▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ──▀──    ░█─── ▀──▀ ▀▀▀ ▀─▀▀ \n")
+print("     ░█▄▄█ ▀▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ──▀──    ░█─── ▀──▀ ▀▀▀ ▀─▀▀ \n\033[0m")
 
 # Jumlah titik atau point
-print("Masukkan dimensi vektor : ", end='')
+print("Masukkan \033[01mdimensi vektor : \033[0m", end='')
 d = int(input())
 while (d <= 0):
-    print("Input salah! Dimensi harus Bilangan Asli")
-    print("Masukkan dimensi vektor : ", end='')
+    print("\033[1m\033[91mInput salah! Dimensi harus Bilangan Asli\033[0m")
+    print("Masukkan \033[1mdimensi vektor : \033[0m", end='')
     d = int(input())
 
-print("Masukkan jumlah titik : ", end='')
+print("Masukkan \033[01mjumlah titik : \033[0m", end='')
 n = int(input())
 while (n <= 1):
-    print("Input salah! Banyak titik minimum 2")
-    print("Masukkan jumlah titik : ", end='')
+    print("\033[1m \033[91m Input salah! Banyak titik minimum 2 \033[0m")
+    print("Masukkan \033[1m jumlah titik : \033[0m", end='')
     n = int(input())
 
-
-# 0.017321
+print()
+proc = '\033[01m\033[33mProcessing ...\033[0m'
+for i in proc:
+    print(i, end='')
+    time.sleep(0.3)
+print("\n")
 
 point = randomPoint(n, d)    # Menghasilkan array of point
 point.append([0, 0, 0])
@@ -51,17 +55,18 @@ minDistance, minPoint1, minPoint2, countEuclid = findPairBF(point, 0)
 exeTimeBF = time.time() - startBF
 
 # Output Program
-print("\n\n==== ALGORITMA BRUTE FORCE ====")
-print("Terdapat", len(minPoint1), "pasang titik terdekat !")
-print("Jarak pasangan titik terdekat :", minDistance)
+print("\033[1m\033[95m==== ALGORITMA BRUTE FORCE ====\033[0m")
+print("\033[95mTerdapat\033[01m", len(minPoint1),
+      "pasang \033[0m\033[95mtitik terdekat !")
+print("Jarak pasangan titik terdekat :", minDistance, "satuan jarak\033[0m")
 for i in range(len(minPoint1)):
-    print("Pasangan Titik Terdekat ke-", (i+1), " :")
+    print("\nPasangan Titik Terdekat ke-", (i+1), " :")
     print("   Titik 1 : ", end='')
     printPoint(minPoint1[i])
     print("   Titik 2 : ", end='')
     printPoint(minPoint2[i])
-print("Banyak Perhitungan Jarak Euclidean Distance :", countEuclid)
-print("Execution Time : %s seconds" % exeTimeBF)
+print("\n\033[95mBanyak Perhitungan Jarak Euclidean Distance :", countEuclid)
+print("Execution Time : %s seconds" % exeTimeBF, "\033[0m")
 
 
 # Pencarian Pasangan Titik Terdekat dengan Algoritma Divide and Conquer
@@ -72,17 +77,21 @@ minDistance, minPoint1, minPoint2, countEuclid = findPairDC(point, 0)
 exeTimeDC = time.time() - startDC
 
 # Output Program
-print("\n==== ALGORITMA DIVIDE AND CONQUER ====")
-print("Terdapat", len(minPoint1), "pasang titik terdekat !")
-print("Jarak pasangan titik terdekat :", minDistance)
+print(
+    "\n\033[1m\033[92m==== ALGORITMA DIVIDE AND CONQUER ====\033[0m")
+print("\033[92mTerdapat\033[01m", len(minPoint1),
+      "pasang \033[0m\033[92mtitik terdekat !")
+print("Jarak pasangan titik terdekat :", minDistance, "satuan jarak\033[0m")
 for i in range(len(minPoint1)):
-    print("Pasangan Titik Terdekat ke-", (i+1), " :")
+    print("\nPasangan Titik Terdekat ke-", (i+1), " :")
     print("   Titik 1 : ", end='')
     printPoint(minPoint1[i])
     print("   Titik 2 : ", end='')
     printPoint(minPoint2[i])
-print("Banyak Perhitungan Jarak Euclidean Distance :", countEuclid)
-print("Execution Time : %s seconds" % exeTimeDC)
+print("\n\033[32mBanyak Perhitungan Jarak Euclidean Distance :", countEuclid)
+print("Execution Time : %s seconds" % exeTimeDC, "\033[0m")
+
+print("\n\033[01m\033[33mShow 3D Visualization ...\033[0m\n")
 # Visualisasi
 if(d == 3):
     drawPlot(point, minPoint1, minPoint2)
