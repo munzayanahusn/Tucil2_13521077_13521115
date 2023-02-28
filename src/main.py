@@ -53,8 +53,6 @@ exeTimeBF = time.time() - startBF
 # Output Program
 print("\n\n==== ALGORITMA BRUTE FORCE ====")
 print("Terdapat", len(minPoint1), "pasang titik terdekat !")
-print(minPoint1)
-print(minPoint2)
 print("Jarak pasangan titik terdekat :", minDistance)
 for i in range(len(minPoint1)):
     print("Pasangan Titik Terdekat ke-", (i+1), " :")
@@ -74,10 +72,8 @@ minDistance, minPoint1, minPoint2, countEuclid = findPairDC(point, 0)
 exeTimeDC = time.time() - startDC
 
 # Output Program
-print("==== ALGORITMA DIVIDE AND CONQUER ====")
+print("\n==== ALGORITMA DIVIDE AND CONQUER ====")
 print("Terdapat", len(minPoint1), "pasang titik terdekat !")
-print(minPoint1)
-print(minPoint2)
 print("Jarak pasangan titik terdekat :", minDistance)
 for i in range(len(minPoint1)):
     print("Pasangan Titik Terdekat ke-", (i+1), " :")

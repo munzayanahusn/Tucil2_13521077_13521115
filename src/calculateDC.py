@@ -15,36 +15,43 @@ Combine : Tentukan nilai jarak antar point minimum, terdapat 3 kasus:
 # Fungsi menghitung jarak terdekat pasangan titik yang dipisahkan garis pembagi
 
 
-def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
-    inarroundMiddle = []
+def middleCompare(distanceMin, leftPoints, rightPoints, point1, point2, midLine, countEuclid):
+    inLeftMiddle = []
+    inRightMiddle = []
     #rightboundary,cnt = euclidDistance(points[len(points)//2], points[(len(points)+1)//2], countEuclid)
-    rightboundary = indexMid+distanceMin
+    rightboundary = midLine+distanceMin
     #leftboundary,cnt2 = euclidDistance(points[len(points)//2], points[(len(points)-1)//2], countEuclid)
-    leftboundary = indexMid-distanceMin
-    for point in points:
-        if leftboundary <= point[0] <= rightboundary:
-            inarroundMiddle.append(point)
+    leftboundary = midLine-distanceMin
+    # print("boundaries", rightboundary, leftboundary)
+    for point in leftPoints:
+        if leftboundary <= point[0] <= midLine:
+            inLeftMiddle.append(point)
+    for point in rightPoints:
+        if midLine <= point[0] <= rightboundary:
+            inRightMiddle.append(point)
 
-    for i in range(len(inarroundMiddle)):
-        for j in range(i+1, len(inarroundMiddle)):
+    # print(inLeftMiddle, inRightMiddle)
+    # print()
+
+    for i in range(len(inLeftMiddle)):
+        for j in range(len(inRightMiddle)):
             distanceNow, countEuclid = euclidDistance(
-                inarroundMiddle[i], inarroundMiddle[j], countEuclid)
+                inLeftMiddle[i], inRightMiddle[j], countEuclid)
 
             '''
             print("\n-- Middle --")
             print(distanceNow)
-            print(inarroundMiddle[i])
-            print(inarroundMiddle[j])
+            print(inRightMiddle[j])
+            print(inLeftMiddle[i])
             print()
             '''
 
             if (distanceMin == distanceNow):
-                if((inarroundMiddle[i] not in point1) and (inarroundMiddle[j] not in point2)):
-                    point1.append(inarroundMiddle[i])
-                    point2.append(inarroundMiddle[j])
+                point1.append(inLeftMiddle[i])
+                point2.append(inRightMiddle[j])
             elif distanceMin > distanceNow:
-                point1 = [inarroundMiddle[i]]
-                point2 = [inarroundMiddle[j]]
+                point1 = [inLeftMiddle[i]]
+                point2 = [inRightMiddle[j]]
                 distanceMin = distanceNow
 
     return distanceMin, point1, point2, countEuclid
@@ -53,6 +60,7 @@ def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
 
 
 def findPairDC(point, countEuclid):
+
     '''
     print("\n+++++++++++")
     print(point)
@@ -126,7 +134,7 @@ def findPairDC(point, countEuclid):
         '''
 
         minDistance, minPoint1, minPoint2, countEuclid = middleCompare(
-            minDistance, point, minPoint1, minPoint2, midPoint, countEuclid)
+            minDistance, leftPoint, rightPoint, minPoint1, minPoint2, midPoint, countEuclid)
 
     '''
     print("-----------")
