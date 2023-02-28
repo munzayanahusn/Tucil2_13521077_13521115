@@ -28,6 +28,8 @@ while (n <= 1):
 point = randomPoint(n, d)    # Menghasilkan array of point
 point.append([0, 0, 0])
 point.append([0.1, 0.1, 0.1])
+point.append([0.3,0.3,0.3])
+point.append([0.4,0.4,0.4])
 point = quickSortSbX(point, 0, len(point)-1)
 
 minDistance = 0

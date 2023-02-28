@@ -34,8 +34,8 @@ def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
                 point1.append(inarroundMiddle[i])
                 point2.append(inarroundMiddle[j])
             elif distanceMin > distanceNow:
-                point1 = inarroundMiddle[i]
-                point2 = inarroundMiddle[j]
+                point1 = [inarroundMiddle[i]]
+                point2 = [inarroundMiddle[j]]
                 distanceMin = distanceNow
 
     return distanceMin, point1, point2, countEuclid
