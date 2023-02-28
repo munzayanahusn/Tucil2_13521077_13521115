@@ -7,9 +7,9 @@ def drawPlot(points, pt1, pt2):
     for point in points:
         x, y, z = point
         if point == pt1 or point == pt2:
-            ax.plot([x], [y], [z], marker='o', markersize=10, color='black')
+            ax.plot([x], [y], [z], marker='o', markersize=4, color='black')
         else:
-            ax.plot([x], [y], [z], marker='o', markersize=10, color='yellow')
+            ax.plot([x], [y], [z], marker='o', markersize=4, color='yellow')
 
     # Set the labels for the x, y, and z axes
     ax.set_xlabel('X')
