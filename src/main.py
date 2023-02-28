@@ -34,19 +34,15 @@ while (n <= 1):
 # 0.017321
 
 point = randomPoint(n, d)    # Menghasilkan array of point
-point.append([0,0,0])
+point.append([0, 0, 0])
 point.append([1, 1, 1])
-point.append([3,3,3])
+point.append([3, 3, 3])
 point.append([2, 2, 2])
 point.append([0.1, 0.1, 0.1])
 point.append([0.2, 0.2, 0.2])
-point.append([0.1, 0.1, 0.1])
-point.append([0.2, 0.2, 0.2])
+point.append([0.3, 0.3, 0.3])
 point = quickSortSbX(point, 0, len(point)-1)
 
-minDistance = 0
-minPoint1 = [[0]]
-minPoint2 = [[0]]
 # Pencarian Pasangan Titik Terdekat dengan Algoritma BruteForce
 startBF = time.time()
 minDistance, minPoint1, minPoint2, countEuclid = findPairBF(point, 0)
@@ -68,12 +64,8 @@ for i in range(len(minPoint1)):
     printPoint(minPoint2[i])
 print("Banyak Perhitungan Jarak Euclidean Distance :", countEuclid)
 print("Execution Time : %s seconds" % exeTimeBF)
-print("\n")
 
 
-minDistance = 0
-minPoint1 = [[0]]
-minPoint2 = [[0]]
 # Pencarian Pasangan Titik Terdekat dengan Algoritma Divide and Conquer
 startDC = time.time()
 minDistance, minPoint1, minPoint2, countEuclid = findPairDC(point, 0)
@@ -82,7 +74,7 @@ minDistance, minPoint1, minPoint2, countEuclid = findPairDC(point, 0)
 exeTimeDC = time.time() - startDC
 
 # Output Program
-print("\n==== ALGORITMA DIVIDE AND CONQUER ====")
+print("==== ALGORITMA DIVIDE AND CONQUER ====")
 print("Terdapat", len(minPoint1), "pasang titik terdekat !")
 print(minPoint1)
 print(minPoint2)
