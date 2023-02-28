@@ -6,8 +6,8 @@ def findPairBF(listPoint, countEuclid):
     minDistance, countEuclid = euclidDistance(
         listPoint[0], listPoint[1], countEuclid)
     countEuclid = 0
-    minPoint1 = [[0]]
-    minPoint2 = [[0]]
+    minPoint1 = []
+    minPoint2 = []
     for i in range(len(listPoint)):
         for j in range(i+1, len(listPoint)):
             dis, countEuclid = euclidDistance(
