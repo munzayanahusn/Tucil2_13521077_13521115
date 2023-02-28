@@ -91,3 +91,5 @@ if(d == 3):
     print("\n\033[01m\033[33mShow 3D Visualization ...\033[0m")
     drawPlotResult(minPoint1, minPoint2)
     drawPlot(point, minPoint1, minPoint2)
+
+print()
