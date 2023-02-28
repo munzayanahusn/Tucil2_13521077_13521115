@@ -44,6 +44,11 @@ def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
 
 
 def findPairDC(point, countEuclid):
+    '''
+    print("+++++++++++")
+    print(point)
+    print("+++++++++++")
+    '''
     # Proses Conquer / solve
     if (len(point) == 2):
         minDistance, countEuclid = euclidDistance(
@@ -89,7 +94,12 @@ def findPairDC(point, countEuclid):
             rightPoint, countEuclid)
 
         # Proses Combine
-        if (leftDistance < rightDistance):
+        # print("\n-- Combine --\n")
+        if (leftDistance == rightDistance):
+            minDistance = leftDistance
+            minPoint1 = leftPoint1 + rightPoint2
+            minPoint2 = leftPoint2 + rightPoint2
+        elif (leftDistance < rightDistance):
             minDistance = leftDistance
             minPoint1 = leftPoint1
             minPoint2 = leftPoint2
@@ -100,4 +110,11 @@ def findPairDC(point, countEuclid):
 
         minDistance, minPoint1, minPoint2, countEuclid = middleCompare(
             minDistance, point, minPoint1, minPoint2, midPoint, countEuclid)
+
+    '''
+    print("-----------")
+    print(minDistance)
+    printPoint(minPoint1)
+    printPoint(minPoint2)
+    '''
     return minDistance, minPoint1, minPoint2, countEuclid

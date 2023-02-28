@@ -24,7 +24,7 @@ def euclidDistance(point1, point2, countEuclid):
         temp = point2[i] - point1[i]
         dis += math.pow(temp, 2)
 
-    return math.sqrt(dis), countEuclid
+    return round(math.sqrt(dis), 10), countEuclid
 
 # Formatting output point
 
