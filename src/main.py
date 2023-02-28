@@ -19,14 +19,14 @@ print("     ░█▄▄█ ▀▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀
 print("Masukkan \033[01mdimensi vektor : \033[0m", end='')
 d = int(input())
 while (d <= 0):
-    print("\033[1m\033[91mInput salah! Dimensi harus Bilangan Asli\033[0m")
+    print("\033[1m\033[91m     Input salah! Dimensi harus Bilangan Asli\033[0m\n")
     print("Masukkan \033[1mdimensi vektor : \033[0m", end='')
     d = int(input())
 
 print("Masukkan \033[01mjumlah titik : \033[0m", end='')
 n = int(input())
 while (n <= 1):
-    print("\033[1m \033[91m Input salah! Banyak titik minimum 2 \033[0m")
+    print("\033[1m \033[91m     Input salah! Banyak titik minimum 2 \033[0m\n")
     print("Masukkan \033[1m jumlah titik : \033[0m", end='')
     n = int(input())
 
@@ -88,5 +88,6 @@ print("Execution Time : %s seconds" % exeTimeDC, "\033[0m")
 
 # Visualisasi
 if(d == 3):
+    print("\n\033[01m\033[33mShow 3D Visualization ...\033[0m")
     drawPlotResult(minPoint1, minPoint2)
     drawPlot(point, minPoint1, minPoint2)
