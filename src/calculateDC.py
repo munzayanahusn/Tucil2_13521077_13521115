@@ -30,10 +30,14 @@ def middleCompare(distanceMin, points, point1, point2, indexMid, countEuclid):
             distanceNow, countEuclid = euclidDistance(
                 inarroundMiddle[i], inarroundMiddle[j], countEuclid)
 
-            if distanceMin > distanceNow:
+            if (distanceMin == distanceNow):
+                point1.append(inarroundMiddle[i])
+                point2.append(inarroundMiddle[j])
+            elif distanceMin > distanceNow:
                 point1 = inarroundMiddle[i]
                 point2 = inarroundMiddle[j]
                 distanceMin = distanceNow
+
     return distanceMin, point1, point2, countEuclid
 
 # Menemukan pasangan titik dengan jarak terdekat
@@ -44,31 +48,36 @@ def findPairDC(point, countEuclid):
     if (len(point) == 2):
         minDistance, countEuclid = euclidDistance(
             point[0], point[1], countEuclid)
-        minPoint1 = point[0]
-        minPoint2 = point[1]
+        minPoint1 = [point[0]]
+        minPoint2 = [point[1]]
     elif (len(point) == 3):
         # Compare P0 dan P1
-        tempPoint = [point[0], point[1]]
         minDistance, countEuclid = euclidDistance(
             point[0], point[1], countEuclid)
-        minPoint1 = point[0]
-        minPoint2 = point[1]
+        minPoint1 = [point[0]]
+        minPoint2 = [point[1]]
 
         # Compare P0 dan P2
         tempDistance, countEuclid = euclidDistance(
             point[0], point[2], countEuclid)
-        if (minDistance > tempDistance):
+        if (minDistance == tempDistance):
+            minPoint1.append(point[0])
+            minPoint2.append(point[2])
+        elif (minDistance > tempDistance):
             minDistance = tempDistance
-            minPoint1 = point[0]
-            minPoint2 = point[2]
+            minPoint1 = [point[0]]
+            minPoint2 = [point[2]]
 
         # Compare P1 dan P2
         tempDistance, countEuclid = euclidDistance(
             point[1], point[2], countEuclid)
-        if (minDistance > tempDistance):
+        if (minDistance == tempDistance):
+            minPoint1.append(point[1])
+            minPoint2.append(point[2])
+        elif (minDistance > tempDistance):
             minDistance = tempDistance
-            minPoint1 = point[1]
-            minPoint2 = point[2]
+            minPoint1 = [point[1]]
+            minPoint2 = [point[2]]
     else:
         # Proses Divide
         leftPoint = point[:(len(point)//2)]
@@ -89,5 +98,6 @@ def findPairDC(point, countEuclid):
             minPoint1 = rightPoint1
             minPoint2 = rightPoint2
 
-        minDistance, minPoint1, minPoint2, countEuclid = middleCompare(minDistance, point, minPoint1, minPoint2, midPoint, countEuclid)
+        minDistance, minPoint1, minPoint2, countEuclid = middleCompare(
+            minDistance, point, minPoint1, minPoint2, midPoint, countEuclid)
     return minDistance, minPoint1, minPoint2, countEuclid

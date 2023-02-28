@@ -20,7 +20,7 @@ def euclidDistance(point1, point2, countEuclid):
     countEuclid += 1
     # print(countEuclid)
     dis = 0
-    for i in range(len(point1)):
+    for i in range(0, len(point1)):
         temp = point2[i] - point1[i]
         dis += math.pow(temp, 2)
 

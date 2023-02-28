@@ -22,12 +22,17 @@ while (n <= 1):
     print("Masukkan jumlah titik : ", end='')
     n = int(input())
 
+
+# 0.017321
+
 point = randomPoint(n, d)    # Menghasilkan array of point
-point = quickSortSbX(point,0,len(point)-1)
+point.append([0, 0, 0])
+point.append([0.1, 0.1, 0.1])
+point = quickSortSbX(point, 0, len(point)-1)
 
 minDistance = 0
-minPoint1 = []
-minPoint2 = []
+minPoint1 = [[]]
+minPoint2 = [[]]
 # Pencarian Pasangan Titik Terdekat dengan Algoritma BruteForce
 startBF = time.time()
 minDistance, minPoint1, minPoint2, countEuclid = findPairBF(point, 0)
@@ -37,19 +42,21 @@ exeTimeBF = time.time() - startBF
 
 # Output Program
 print("==== ALGORITMA BRUTE FORCE ====")
-print("Titik Terdekat :")
-print("   Titik 1 : ", end='')
-printPoint(minPoint1)
-print("   Titik 2 : ", end='')
-printPoint(minPoint2)
-print("   Jarak   :", minDistance, "")
+print("Terdapat", len(minPoint1), "pasang titik terdekat !")
+print("Jarak pasangan titik terdekat :", minDistance)
+for i in range(len(minPoint1)):
+    print("Pasangan Titik Terdekat ke-", (i+1), " :")
+    print("   Titik 1 : ", end='')
+    printPoint(minPoint1[i])
+    print("   Titik 2 : ", end='')
+    printPoint(minPoint2[i])
 print("Banyak Perhitungan Jarak Euclidean Distance :", countEuclid)
 print("Execution Time : %s seconds" % exeTimeBF)
 
 
 minDistance = 0
-minPoint1 = []
-minPoint2 = []
+minPoint1 = [[]]
+minPoint2 = [[]]
 # Pencarian Pasangan Titik Terdekat dengan Algoritma Divide and Conquer
 startDC = time.time()
 minDistance, minPoint1, minPoint2, countEuclid = findPairDC(point, 0)
@@ -59,12 +66,14 @@ exeTimeDC = time.time() - startDC
 
 # Output Program
 print("\n==== ALGORITMA DIVIDE AND CONQUER ====")
-print("Titik Terdekat :")
-print("   Titik 1 : ", end='')
-printPoint(minPoint1)
-print("   Titik 2 : ", end='')
-printPoint(minPoint2)
-print("   Jarak   :", minDistance, "")
+print("Terdapat", len(minPoint1), "pasang titik terdekat !")
+print("Jarak pasangan titik terdekat :", minDistance)
+for i in range(len(minPoint1)):
+    print("Pasangan Titik Terdekat ke-", (i+1), " :")
+    print("   Titik 1 : ", end='')
+    printPoint(minPoint1[i])
+    print("   Titik 2 : ", end='')
+    printPoint(minPoint2[i])
 print("Banyak Perhitungan Jarak Euclidean Distance :", countEuclid)
 print("Execution Time : %s seconds" % exeTimeDC)
 # Visualisasi
