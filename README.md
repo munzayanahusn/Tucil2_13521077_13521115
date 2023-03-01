@@ -26,8 +26,9 @@ Algoritma Divide and Conquer adalah strategi pemecahan masalah dengan cara memba
 ## Cara Menjalankan Program
 * Clone atau download program pada repositori pada link [berikut](https://github.com/munzayanahusn/Tucil2_13521077_13521115.git)
 * Unzip file hasil download (jika memilih untuk mendownload program)
-* Jika menggunakan IDE, seperti Visual Studio Code, `run` program pada file `main.py`
-* Jika menggunakan terminal maka arahkan terminal ke direktori file src, kemudian jalankan perintah `python -u main.py`
+* Jalankan program dengan menekan/membuka file `run.bat` pada folder `bin`
+* Jika ingin menggunakan IDE, seperti Visual Studio Code, `run` program pada file `main.py`
+* Jika ingin menggunakan terminal maka arahkan terminal ke direktori file src, kemudian jalankan perintah `python -u main.py`
 * Muncul splashscreen sebagai tanda program berhasil dijalankan
 
 **_NOTE:_**  Untuk menjalankan kembali program yang telah berjalan, diperlukan untuk menutup jendela visualisasi terlebih dahulu. 
