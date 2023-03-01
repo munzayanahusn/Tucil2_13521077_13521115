@@ -20,6 +20,7 @@ Algoritma Divide and Conquer adalah strategi pemecahan masalah dengan cara memba
 * Python3
 * Instalasi library math dengan mengetikkan `pip install math` pada terminal
 * Instalasi library matplotlib dengan mengetikkan `pip install matplotlib` pada terminal
+* Instalasi library colorama dengan mengetikkan `pip install colorama` pada terminal
 * Instalasi library colorize dengan mengetikkan `pip install colorize` pada terminal
 * Visual Studio Code (opsional bisa dijalankan di terminal juga atau dengan IDE lain)
 
