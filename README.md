@@ -39,9 +39,10 @@ Algoritma Divide and Conquer adalah strategi pemecahan masalah dengan cara memba
 ```bash
 └───Tucil2_13521077_13521115
     ├───bin
-    │   └───
+    │   ├───main.exe
+    │   └───run.bat
     ├───doc
-    │   └───
+    │   └───Tucil2_13521077_13521115.pdf
     ├───src
     │   ├───calculateBruteForce.py
     │   ├───calculateDC.py
