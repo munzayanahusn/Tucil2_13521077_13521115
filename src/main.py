@@ -1,4 +1,5 @@
 import math
+import numpy
 from tools import *
 from calculateDC import *
 from calculateBruteForce import *
